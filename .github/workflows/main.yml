@@ -9,4 +9,4 @@ jobs:
       - name: test command
         run: |
           pwd
-          ls /etc/init.d
+          ls /etc/init.d/mysql
