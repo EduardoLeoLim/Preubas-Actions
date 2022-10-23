@@ -5,8 +5,12 @@ on:
 jobs:
   test-mysql:
     runs-on: ubuntu-latest
+    env:
+      DB_DATABASE: test_db
+      DB_USER: root
+      DB_PASSWORD: root
     steps:
-      - name: test command
+      - name: Set up MySQL
         run: |
-          pwd
-          ls /etc/init.d/mysql
+          sudo /etc/init.d/mysql start
+          mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
