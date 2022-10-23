@@ -3,17 +3,8 @@ on:
   push:
     branches: [ master ]
 jobs:
-  container-test-job:
+  test-mysql:
     runs-on: ubuntu-latest
-    container:
-      image: node:14.16
-      env:
-        NODE_ENV: development
-      ports:
-        - 80
-      volumes:
-        - my_docker_volume:/volume_mount
-      options: --cpus 1
     steps:
-      - name: Check for dockerenv file
-        run: (ls /.dockerenv && pwd && echo Found dockerenv) || (echo No dockerenv)
+      - name: test command
+        run: pwd
