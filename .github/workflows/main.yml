@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test command
-        run: pwd
+        run: |
+          pwd
+          ls /etc/init.d
